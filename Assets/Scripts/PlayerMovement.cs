@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public float characterSpeed;
     public float spaceSpeed;
     public bool isOnFloor;
+    public GameObject enemy;
+    
+
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -29,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Floor"))
         {
             isOnFloor = true;
+        }
+
+        if (other.gameObject.CompareTag("DeadPoint"))
+        {
+            Destroy(gameObject);
         }
     }
 }

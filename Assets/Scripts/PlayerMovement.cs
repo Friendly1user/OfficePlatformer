@@ -9,22 +9,37 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D playerRb;
     public float horizontalInput;
     public float characterSpeed;
-    public float spaceSpeed;
-    public bool isOnFloor;
-    public GameObject enemy;
-    
+    public float jumpSpeed;
+    public bool isOnFloor = true;
+    public CharacterController controller;
+
 
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        
-        playerRb.AddForce(Vector2.right * Time.deltaTime * horizontalInput * characterSpeed);
+        var horizontalInput = new Vector2(Input.GetAxis("Horizontal"), 0);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnFloor)
+        playerRb.velocity = horizontalInput * characterSpeed;
+
+        if (Input.GetButtonDown("Jump") && isOnFloor)
         {
-            playerRb.AddForce(Vector2.up * spaceSpeed, ForceMode2D.Impulse);
+            playerRb.velocity = new Vector2(playerRb.velocity.x, jumpSpeed);
             isOnFloor = false;
         }
+        if (Input.GetButtonUp("Jump") && playerRb.velocity.y > 0f)
+        {
+            playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y * 0.5f);
+        }
+            
+            
+        
+        // playerRb.AddForce(Vector2.right * Time.deltaTime * horizontalInput * characterSpeed);
+
+        /*if (Input.GetKeyDown(KeyCode.Space) && isOnFloor)
+        {
+            playerRb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            isOnFloor = false;
+        }*/
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -39,4 +54,6 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    
 }

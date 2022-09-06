@@ -232,6 +232,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &759017893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7103303013463817659, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
+  m_PrefabInstance: {fileID: 1806523969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &899421207
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +250,7 @@ GameObject:
   - component: {fileID: 899421208}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +359,7 @@ GameObject:
   - component: {fileID: 1455203624}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,24 +467,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 972256607, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
-      propertyPath: m_GravityScale
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 972256607, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
       propertyPath: m_SleepingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 972256607, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 972256608, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
-      propertyPath: jumpSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 972256608, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
-      propertyPath: characterSpeed
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6514287730990027360, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
       propertyPath: m_RootOrder
@@ -527,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7103303013463817659, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
       propertyPath: m_Name
-      value: BaseBlock
+      value: Character
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 342bbf055c712f241bf906e6deda18f7, type: 3}
@@ -598,6 +591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DummyEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 9038506406179645766, guid: dda23853fa03f334ebfde3a3d718a7ff, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 759017893}
     - target: {fileID: 9038506406179645766, guid: dda23853fa03f334ebfde3a3d718a7ff, type: 3}
       propertyPath: enemySpeed
       value: 5

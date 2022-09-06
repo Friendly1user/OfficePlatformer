@@ -11,14 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public float characterSpeed;
     public float jumpSpeed;
     public bool isOnFloor = true;
-    public CharacterController controller;
 
 
     void Update()
     {
-        var horizontalInput = new Vector2(Input.GetAxis("Horizontal"), 0);
+        horizontalInput = Input.GetAxis("Horizontal");
 
-        playerRb.velocity = horizontalInput * characterSpeed;
+        playerRb.velocity = new Vector2(horizontalInput * characterSpeed, playerRb.velocity.y);
 
         if (Input.GetButtonDown("Jump") && isOnFloor)
         {
@@ -28,21 +27,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && playerRb.velocity.y > 0f)
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y * 0.5f);
-            Debug.Log("up");
         }
-        
-        Debug.Log(playerRb.velocity);
-            
-            
-        
-        // playerRb.AddForce(Vector2.right * Time.deltaTime * horizontalInput * characterSpeed);
-
-        /*if (Input.GetKeyDown(KeyCode.Space) && isOnFloor)
-        {
-            playerRb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            isOnFloor = false;
-        }*/
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -57,6 +42,5 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    
+
 }

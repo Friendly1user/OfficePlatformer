@@ -242,7 +242,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -288,7 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRb: {fileID: 972256607}
   horizontalInput: 0
-  characterSpeed: 900
-  spaceSpeed: 17
+  characterSpeed: 10
+  jumpSpeed: 30
   isOnFloor: 0
-  enemy: {fileID: 0}

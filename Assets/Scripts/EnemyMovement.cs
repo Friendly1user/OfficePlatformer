@@ -7,7 +7,14 @@ public class EnemyMovement : MonoBehaviour
 {
     public float enemySpeed;
     public float direction = 1;
-    
+    public GameObject character;
+    public PlayerMovement playerMovement;
+
+    private void Start()
+    {
+        playerMovement = character.GetComponent<PlayerMovement>();
+    }
+
     void Update()
     {
         transform.Translate(new Vector2(direction,0) * Time.deltaTime * enemySpeed);
@@ -31,10 +38,9 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("DeadPoint"))
         {
             Destroy(gameObject);
+            
+            var playerRb = character.GetComponent<Rigidbody2D>();
+            playerRb.velocity = new Vector2(playerRb.velocity.x, playerMovement.jumpSpeed);
         }
-        
-        Debug.Log("DESTROY");
-        
-        
     }
 }

@@ -28,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && playerRb.velocity.y > 0f)
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y * 0.5f);
+            Debug.Log("up");
         }
+        
+        Debug.Log(playerRb.velocity);
             
             
         

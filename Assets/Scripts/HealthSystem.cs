@@ -37,9 +37,10 @@ public class HealthSystem : MonoBehaviour
 
     public IEnumerator Unbreakable()
     {
+        damageAnim.SetBool("Test", true);
         isUnbreakable = true;
-        damageAnim.Play("DamageAnimation");
         yield return new WaitForSeconds(3);
+        damageAnim.SetBool("Test", false);
         isUnbreakable = false;
     }
 } 

@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float enemySpeed;
     public float direction = 1;
     public GameObject character;
-    public PlayerMovement playerMovement;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
@@ -40,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
             Destroy(gameObject);
             
             var playerRb = character.GetComponent<Rigidbody2D>();
-            playerRb.velocity = new Vector2(playerRb.velocity.x, playerMovement.jumpSpeed);
+            playerRb.velocity = new Vector2(playerRb.velocity.x, playerMovement.jumpSpeed / 1.5f);
         }
     }
 }

@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpSpeed);
             isOnFloor = false;
+            Debug.Log(playerRb.velocity);
         }
         if (Input.GetButtonUp("Jump") && playerRb.velocity.y > 0f)
         {
